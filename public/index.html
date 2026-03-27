@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Ledger | Student Records</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Permanent+Marker&family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="desk">
+        <header class="chalkboard">
+            <h1>Classroom Ledger</h1>
+            <p>Academic Year 2026-27</p>
+        </header>
+        
+        <main class="notebook">
+            <div class="spiral"></div>
+            <div class="page">
+                <section class="add-student-section">
+                    <h2 class="handwritten-title">New Entry</h2>
+                    <form id="student-form" class="entry-form">
+                        <div class="input-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" required placeholder="Full Name">
+                        </div>
+                        <div class="input-group">
+                            <label for="branch">Branch:</label>
+                            <input type="text" id="branch" required placeholder="e.g. Computer Science">
+                        </div>
+                        <div class="input-group">
+                            <label for="year">Year:</label>
+                            <select id="year" required>
+                                <option value="" disabled selected>Select Year</option>
+                                <option value="1st">1st Year</option>
+                                <option value="2nd">2nd Year</option>
+                                <option value="3rd">3rd Year</option>
+                                <option value="4th">4th Year</option>
+                            </select>
+                        </div>
+                        <button type="submit" id="submit-btn" class="paper-btn">Add Record</button>
+                    </form>
+                </section>
+
+                <hr class="notebook-line">
+
+                <section class="records-section">
+                    <h2 class="handwritten-title">Student Records</h2>
+                    <div id="student-list" class="records-container">
+                        <!-- Student records will be injected here -->
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Editing -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content notebook mini">
+            <div class="spiral"></div>
+            <div class="page">
+                <h2 class="handwritten-title">Edit Record</h2>
+                <form id="edit-form" class="entry-form">
+                    <input type="hidden" id="edit-id">
+                    <div class="input-group">
+                        <label for="edit-name">Name:</label>
+                        <input type="text" id="edit-name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-branch">Branch:</label>
+                        <input type="text" id="edit-branch" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="edit-year">Year:</label>
+                        <select id="edit-year" required>
+                            <option value="1st">1st Year</option>
+                            <option value="2nd">2nd Year</option>
+                            <option value="3rd">3rd Year</option>
+                            <option value="4th">4th Year</option>
+                        </select>
+                    </div>
+                    <div class="btn-group">
+                        <button type="submit" class="paper-btn">Save</button>
+                        <button type="button" id="close-modal" class="paper-btn secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>
